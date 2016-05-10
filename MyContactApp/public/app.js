@@ -81,7 +81,7 @@ myApp.controller("appCtrl",function($scope,myService){
     $scope.editItem=function(dataItem){
        myService.editRecord(dataItem).then(function(responseText){
            
-              $scope.items=responseText.data;
+              $scope.item=responseText.data;
        });
              
     };
@@ -91,7 +91,7 @@ myApp.controller("appCtrl",function($scope,myService){
           myService.updateRecord($scope.item);
                 
           refresh();
-          $scope.items="";
+          $scope.item="";
     };
     
     $scope.deleteItem=function(dataItem){
@@ -100,20 +100,5 @@ myApp.controller("appCtrl",function($scope,myService){
         refresh();
     }
        
-});
-
-
-myApp.directive("contacts",function(){
-    
-      return{
-            
-            templateUrl:"contacts.html",
-            replace:true,
-            scope:{
-                 itemObj:"=",
-                  editItemObj:"&",
-                  deleteItemObj:"&"
-            }
-      }
 });
     
